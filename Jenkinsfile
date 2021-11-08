@@ -11,6 +11,14 @@ pipeline {
                 echo 'ddd'
             }
         }
+        stage('Buil2') 
+		{
+            steps 
+			{
+                echo 'Build App2'
+                echo 'ddd2'
+            }
+        }
 		
 		stage('Test') 
 		{
