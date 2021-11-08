@@ -1,46 +1,17 @@
 pipeline {
     agent any
 
-    stages 
-	{
-        stage('Build') 
-		{
-            steps 
-			{
-                echo 'Build App'
-                echo 'ddd'
-            }
-        }
-        stage('Buil2') 
-		{
-            steps 
-			{
-                echo 'Build App2'
-                echo 'ddd2'
-            }
-        }
-		
-		stage('Test') 
-		{
-            steps 
-			{
-                echo 'Test App'
-            }
-        }
-		
-		stage('Deploy') 
-		{
-            steps 
-			{
-                echo 'Deploy App'
+    stages{
+        stage("Build"){
+            steps{
+                sh "mvn -version"
+                sh "mvn clean install"
             }
         }
     }
-	post 
-	{
-			always
-			{
-				emailext body: '''DO NOT RESPOND''', subject: 'Pipeline Status', to: 'kamilacc97@gmail.com'
-			}
-	}
+    post{
+        always{
+            cleanWs()
+        }
+    }
 }
