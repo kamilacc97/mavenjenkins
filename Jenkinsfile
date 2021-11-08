@@ -8,6 +8,7 @@ pipeline {
             steps 
 			{
                 echo 'Build App'
+                echo 'ddd'
             }
         }
 		
